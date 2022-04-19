@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { ExtraIngredients, ItemOrdered, Pizza, PizzaArray } from './types';
 import { formatCurrency } from './utils';
 
