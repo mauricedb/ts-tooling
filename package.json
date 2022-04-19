@@ -6,7 +6,12 @@
   "scripts": {
     "start": "live-server",
     "compile": "tsc",
-    "compile:watch": "tsc --watch"
+    "compile:watch": "tsc --watch",
+    "webpack": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   },
   "keywords": [],
   "author": "Maurice de Beijer",
