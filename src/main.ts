@@ -1,5 +1,5 @@
-import { ExtraIngredients, ItemOrdered, Pizza, PizzaArray } from './types.js';
-import { formatCurrency } from './utils.js';
+import { ExtraIngredients, ItemOrdered, Pizza, PizzaArray } from './types';
+import { formatCurrency } from './utils';
 
 const order: ItemOrdered[] = [];
 const formToPizzaMap = new WeakMap<HTMLElement, Pizza>();

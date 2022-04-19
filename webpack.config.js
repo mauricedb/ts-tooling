@@ -4,4 +4,10 @@ module.exports = {
   output: {
     filename: 'pizzeria-bundle.js',
   },
+  resolve: {
+    extensions: ['.ts', '...'],
+  },
+  module: {
+    rules: [{ test: /\.ts$/, loader: 'ts-loader' }],
+  },
 };
