@@ -5,7 +5,8 @@
     /* Language and Environment */
     "target": "es2016",
     "outDir": "dist/",
-    "noEmit": true
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true
   },
   // "files": ["src/*.ts"]
   "include": ["src/*.ts"]

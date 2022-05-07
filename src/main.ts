@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import $ from 'jquery';
 import { ExtraIngredients, ItemOrdered, Pizza, PizzaArray } from './types';
 import { formatCurrency } from './utils';
 
@@ -6,10 +7,12 @@ const order: ItemOrdered[] = [];
 const formToPizzaMap = new WeakMap<HTMLElement, Pizza>();
 let extraIngredients: ExtraIngredients = {};
 
-function addPizzaToOrder(e: SubmitEvent) {
+function addPizzaToOrder(
+  e: JQuery.SubmitEvent<any, any, any, HTMLFormElement>
+) {
   e.preventDefault();
 
-  const form = e.target as HTMLFormElement;
+  const form = e.target;
   const pizza = formToPizzaMap.get(form);
 
   if (!pizza) {
@@ -42,13 +45,13 @@ function addPizzaToOrder(e: SubmitEvent) {
 }
 
 function renderOrderTotal() {
-  const totalPriceEl = document.getElementById('order-total');
+  const totalPriceEl = $('#order-total').get(0);
   const totalPrice = order.reduce((sum, item) => sum + item.price, 0);
   totalPriceEl!.innerHTML = formatCurrency(totalPrice);
 }
 
 function renderOrder() {
-  const orderEl = document.getElementById('order')!;
+  const orderEl = $('#order').get(0);
   orderEl.textContent = order.length ? '' : 'No items in the order yet';
 
   for (const pizza of order) {
@@ -81,7 +84,7 @@ function renderOrder() {
 function renderMenu(pizzas: PizzaArray, extras: ExtraIngredients) {
   extraIngredients = extras;
 
-  const main = document.getElementById('menu');
+  const main = $('#menu').get(0);
 
   for (const pizza of pizzas) {
     const extraToppings = pizza.extras
@@ -135,11 +138,9 @@ function renderMenu(pizzas: PizzaArray, extras: ExtraIngredients) {
 }
 
 function checkout(amount: number, account: number) {
-  document.getElementById('checkout-amount')!.innerText =
-    formatCurrency(amount);
-  document.getElementById('checkout-account')!.innerText =
-    account.toLocaleString('nl-NL');
-  (document.getElementById('checkout-dialog') as any)?.showModal();
+  $('#checkout-amount').text(formatCurrency(amount));
+  $('#checkout-account').text(account.toLocaleString('nl-NL'));
+  ($('#checkout-dialog').get(0) as any).showModal();
 }
 
 async function loadPizzas(): Promise<PizzaArray> {
@@ -169,7 +170,7 @@ async function init() {
     }
   }
 
-  document.getElementById('checkout-button')?.addEventListener('click', () => {
+  $('#checkout-button').on('click', () => {
     const account = 1234567890;
     const amount = order.reduce((sum, item) => sum + item.price, 0);
 
@@ -192,6 +193,6 @@ async function init() {
   }
 }
 
-document.getElementById('menu')?.addEventListener('submit', addPizzaToOrder);
+$('#menu').on('submit', addPizzaToOrder);
 
 init();
