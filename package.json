@@ -8,16 +8,23 @@
     "compile": "tsc",
     "compile:watch": "tsc --watch",
     "webpack": "webpack",
-    "webpack:watch": "webpack --watch"
+    "webpack:watch": "webpack --watch",
+    "test": "mocha --require ts-node/register src/**/*.tests.ts",
+    "test:watch": "npm test -- --watch --watch-files src --watch-extensions ts"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
+    "@types/chai": "^4.3.1",
     "@types/jquery": "^3.5.14",
+    "@types/mocha": "^9.1.1",
     "babel-loader": "^8.2.4",
+    "chai": "^4.3.6",
     "esbuild-loader": "^2.18.0",
+    "mocha": "^10.0.0",
     "ts-loader": "^9.2.8",
+    "ts-node": "^10.7.0",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
   },
@@ -25,7 +32,6 @@
   "author": "Maurice de Beijer",
   "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "jquery": "^3.6.0",
     "live-server": "1.2.1",
     "prettier": "2.6.2",
