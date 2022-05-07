@@ -10,7 +10,8 @@
     "webpack": "webpack",
     "webpack:watch": "webpack --watch",
     "test": "mocha --require ts-node/register src/**/*.tests.ts",
-    "test:watch": "npm test -- --watch --watch-files src --watch-extensions ts"
+    "test:watch": "npm test -- --watch --watch-files src --watch-extensions ts",
+    "eslint": "eslint src/**/*.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -19,9 +20,12 @@
     "@types/chai": "^4.3.1",
     "@types/jquery": "^3.5.14",
     "@types/mocha": "^9.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
     "babel-loader": "^8.2.4",
     "chai": "^4.3.6",
     "esbuild-loader": "^2.18.0",
+    "eslint": "^8.15.0",
     "mocha": "^10.0.0",
     "ts-loader": "^9.2.8",
     "ts-node": "^10.7.0",
