@@ -36,6 +36,7 @@
   "author": "Maurice de Beijer",
   "license": "MIT",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "jquery": "^3.6.0",
     "live-server": "1.2.1",
     "prettier": "2.6.2",
