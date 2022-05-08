@@ -174,21 +174,6 @@ async function init() {
 
     checkout(amount, account);
   });
-  try {
-    renderOrder();
-    const pizzasPromise = loadPizzas();
-    const extrasPromise = loadExtras();
-    renderMenu(await pizzasPromise, await extrasPromise);
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(
-        `%cError loading data: ${error.name} - ${error.message}`,
-        'font-weight: bold; font-size: 1.5rem;'
-      );
-    } else {
-      console.error(error);
-    }
-  }
 }
 
 document.getElementById('menu')?.addEventListener('submit', addPizzaToOrder);
